@@ -1,0 +1,7 @@
+Veritabanı DataBase klasörünün içindedir.
+------------------------
+Admin kullanıcı ad:admin
+Admin şifre:admin
+------------------------
+Çalışan kullanıcı ad:staff
+Çalışan şifre:staff

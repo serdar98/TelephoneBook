@@ -1,0 +1,65 @@
+﻿@using TelephoneBook.Models
+@model StaffLogin
+
+@{
+    ViewBag.Title = "Çalışan Girişi ";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Çalışan Girişi</title>
+
+    <link href="~/Content/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/css/sb-admin.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-dark">
+
+    <div class="container">
+
+        @using (Html.BeginForm("StaffLogin", "Home", FormMethod.Post, new { @id = "frmStaffLogin" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="card card-login mx-auto mt-5">
+                <div class="card-header">
+                    <a href="~/Home/Login">Yönetici Giriş</a>
+
+                    <a style="float:right">Çalışan Giriş</a>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            @Html.TextBoxFor(model => model.staffUsername, new { @autofocus = "autofocus", @type = "text", @placeholder = "Kullanıcı Adınızı Giriniz ", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.staffUsername, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(model => model.staffPassword, new { @autofocus = "autofocus", @type = "password", @placeholder = "Şifrenizi Giriniz ", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.staffPassword, "", new { @class = "text-danger" })
+                        </div>
+
+                        <input type="submit" class="btn btn-primary btn-block" value="Giriş Yap" />
+                    </form>
+
+                </div>
+            </div>
+        }
+    </div>
+
+    <script src="~/Content/Scripts/jquery.min.js"></script>
+    <script src="~/Content/Scripts/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/Scripts/jquery.easing.min.js"></script>
+
+</body>
+
+</html>

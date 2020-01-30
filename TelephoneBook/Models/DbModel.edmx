@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TelephoneBookModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="loginAdmin">
+          <Key>
+            <PropertyRef Name="adminUserID" />
+          </Key>
+          <Property Name="adminUserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="adminUsername" Type="nvarchar" MaxLength="50" />
+          <Property Name="adminPassword" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="StaffInformation">
+          <Key>
+            <PropertyRef Name="Staff_ID" />
+          </Key>
+          <Property Name="Staff_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telephone" Type="nvarchar" MaxLength="11" />
+          <Property Name="Department" Type="nvarchar" MaxLength="50" />
+          <Property Name="Manager" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="StaffLogin">
+          <Key>
+            <PropertyRef Name="staffUserID" />
+          </Key>
+          <Property Name="staffUserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="staffUsername" Type="nvarchar" MaxLength="50" />
+          <Property Name="staffPassword" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityContainer Name="TelephoneBookModelStoreContainer">
+          <EntitySet Name="loginAdmin" EntityType="Self.loginAdmin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StaffInformation" EntityType="Self.StaffInformation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StaffLogin" EntityType="Self.StaffLogin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TelephoneBookModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TelephoneBookEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="loginAdmin" EntityType="TelephoneBookModel.loginAdmin" />
+          <EntitySet Name="StaffInformation" EntityType="TelephoneBookModel.StaffInformation" />
+          <EntitySet Name="StaffLogin" EntityType="TelephoneBookModel.StaffLogin" />
+          <EntitySet Name="sysdiagrams" EntityType="TelephoneBookModel.sysdiagrams" />
+        </EntityContainer>
+        <EntityType Name="loginAdmin">
+          <Key>
+            <PropertyRef Name="adminUserID" />
+          </Key>
+          <Property Name="adminUserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="adminUsername" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="adminPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="StaffInformation">
+          <Key>
+            <PropertyRef Name="Staff_ID" />
+          </Key>
+          <Property Name="Staff_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Manager" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="StaffLogin">
+          <Key>
+            <PropertyRef Name="staffUserID" />
+          </Key>
+          <Property Name="staffUserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="staffUsername" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="staffPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TelephoneBookModelStoreContainer" CdmEntityContainer="TelephoneBookEntities">
+          <EntitySetMapping Name="loginAdmin">
+            <EntityTypeMapping TypeName="TelephoneBookModel.loginAdmin">
+              <MappingFragment StoreEntitySet="loginAdmin">
+                <ScalarProperty Name="adminPassword" ColumnName="adminPassword" />
+                <ScalarProperty Name="adminUsername" ColumnName="adminUsername" />
+                <ScalarProperty Name="adminUserID" ColumnName="adminUserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StaffInformation">
+            <EntityTypeMapping TypeName="TelephoneBookModel.StaffInformation">
+              <MappingFragment StoreEntitySet="StaffInformation">
+                <ScalarProperty Name="Manager" ColumnName="Manager" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Staff_ID" ColumnName="Staff_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StaffLogin">
+            <EntityTypeMapping TypeName="TelephoneBookModel.StaffLogin">
+              <MappingFragment StoreEntitySet="StaffLogin">
+                <ScalarProperty Name="staffPassword" ColumnName="staffPassword" />
+                <ScalarProperty Name="staffUsername" ColumnName="staffUsername" />
+                <ScalarProperty Name="staffUserID" ColumnName="staffUserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="TelephoneBookModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,73 @@
+﻿@using TelephoneBook.Models
+@model StaffInformation 
+@{
+    ViewBag.Title = "Güncelle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Telefon Rehberi</title>
+
+    <link href="~/Content/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/css/dataTables.bootstrap4.css" rel="stylesheet">
+    <link href="~/Content/css/sb-admin.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <div id="content-wrapper">
+            <div class="container-fluid">
+                <div class="card mb-3">
+                    <div class="card-header">Telefon Rehberi</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 ">
+                                @using (Html.BeginForm("Update2", "Info", FormMethod.Post))
+                                {
+                                <form class="form-group" method="post">
+                                    @Html.TextBoxFor(model => model.Name, new {  @class = "form-control",@onkeypress="return (event.charCode >=65 && event.charCode <=90) || (event.charCode >=95 && event.charCode <=122)"})
+                                    <br />
+                                    @Html.TextBoxFor(model => model.Surname, new {  @class = "form-control",@onkeypress="return (event.charCode >=65 && event.charCode <=90) || (event.charCode >=95 && event.charCode <=122)" })
+                                    <br />
+                                    @Html.TextBoxFor(model => model.Telephone, new { @class = "form-control",@maxlength = "10", @minlength = "10", @onkeypress = "return event.charCode >=48 && event.charCode <=57"  })
+                                    <br />
+                                    @Html.TextBoxFor(model => model.Department, new { @class = "form-control",@onkeypress="return (event.charCode >=65 && event.charCode <=90) || (event.charCode >=95 && event.charCode <=122)" })
+                                    <br />
+                                    @Html.TextBoxFor(model => model.Manager, new {@class = "form-control",@onkeypress="return (event.charCode >=65 && event.charCode <=90) || (event.charCode >=95 && event.charCode <=122)" })
+                                    <br />
+                                    <button class="btn btn-info">Güncelle</button>
+                                </form>
+                                }
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="~/Content/Scripts/jquery.min.js"></script>
+    <script src="~/Content/Scripts//bootstrap.bundle.min.js"></script>
+    <script src="~/Content/Scripts/jquery.easing.min.js"></script>
+    <script src="~/Content/Scripts/jquery.dataTables.js"></script>
+    <script src="~/Content/Scripts/dataTables.bootstrap4.js"></script>
+    <script src="~/Content/Scripts/sb-admin.min.js"></script>
+    <script src="~/Content/Scripts/datatables-demo.js"></script>
+
+</body>
+
+</html>
+
+
